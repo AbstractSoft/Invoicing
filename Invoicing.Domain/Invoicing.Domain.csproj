@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Folder Include="BoundedContexts\Customer\Validators\" />
+        <Folder Include="BoundedContexts\Merchant\" />
+        <Folder Include="BoundedContexts\Person\" />
+        <Folder Include="BoundedContexts\Company\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Invoicing.Domain.Support\Invoicing.Domain.Support.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="BoundedContexts\Shared\Bank\" />
+      <None Remove="BoundedContexts\Merchant\" />
+      <None Remove="BoundedContexts\Person\" />
+      <None Remove="BoundedContexts\Company\" />
+    </ItemGroup>
+</Project>
