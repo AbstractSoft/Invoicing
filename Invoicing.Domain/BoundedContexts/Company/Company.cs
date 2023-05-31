@@ -1,13 +1,12 @@
 ﻿namespace Invoicing.Domain.BoundedContexts.Company;
 
-using Invoicing.Domain.Support.Contracts.Entities;
+using Support.Contracts.Entities;
 
 public class Company : Entity, IAggregateRoot
 {
 		public Company()
 		{
 		}
-
 
 		protected override FluentValidation.IValidator GetValidator()
 		{

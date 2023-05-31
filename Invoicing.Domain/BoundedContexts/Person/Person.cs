@@ -1,42 +1,45 @@
 ﻿namespace Invoicing.Domain.BoundedContexts.Person;
 
 using FluentValidation;
-using Invoicing.Domain.BoundedContexts.Shared.Address;
-using Invoicing.Domain.BoundedContexts.Shared.Person.Validators;
-using Invoicing.Domain.Support.Contracts.Entities;
+using Support.Contracts.Entities;
+using Shared.BankAccount;
+using Shared.Location;
+using Shared.Name;
+using Validators;
 
 [Serializable]
-public sealed class Person : Entity
+public sealed class Person : Entity, IAggregateRoot
 {
-    private Person()
-        : base() { }
+    private Name _name;
+    private IDCard.IDCard _idCard;
+    private Address _address;
+    private BankAccount _bankAccount;
+    
+    private Person() { }
 
     private Person(Guid objectId)
         : base(objectId) { }
 
     public static Person MakePerson(
-        string firstName,
-        string lastName,
-        Shared.Person.IDCard.IDCard idCard,
+        Name name,
+        IDCard.IDCard idCard,
         Address address,
-        Invoicing.Domain.BoundedContexts.Shared.Bank.BankAccount bankAccount)
+        BankAccount bankAccount)
     {
-        return MakePerson(Guid.NewGuid(), firstName, lastName, idCard, address, bankAccount);
+        return MakePerson(Guid.NewGuid(), name, idCard, address, bankAccount);
     }
 
     public static Person MakePerson(
         Guid objectId,
-        string firstName,
-        string lastName,
-        Shared.Person.IDCard.IDCard idCard,
+        Name name,
+        IDCard.IDCard idCard,
         Address address,
-        Invoicing.Domain.BoundedContexts.Shared.Bank.BankAccount bankAccount
+        BankAccount bankAccount
     )
     {
         var person = new Person(objectId)
         {
-            FirstName = firstName,
-            LastName = lastName,
+            Name = name,
             IDCard = idCard,
             Address = address,
             BankAccount = bankAccount
@@ -47,11 +50,45 @@ public sealed class Person : Entity
         return person;
     }
 
-    public string FirstName { get; private set; }
-    public string LastName { get; private set; }
-    public Shared.Person.IDCard.IDCard IDCard { get; private set; }
-    public Address Address { get; private set; }
-    public Invoicing.Domain.BoundedContexts.Shared.Bank.BankAccount BankAccount { get; private set; }
+    public Name Name
+    {
+        get => _name;
+        set
+        {
+            _name = value;
+            
+            ValidateAndThrow();
+            
+            //Invoicing.Domain.Support.Events.DomainEvents.Raise(
+            //         new eCommerce.Domain.Customers.Events.PersonChanged
+            //         {
+            //             Person = this
+            //         });
+        }
+    }
+
+    public IDCard.IDCard IDCard
+    {
+        get => _idCard;
+        set
+        {
+            _idCard = value;
+            
+            ValidateAndThrow();
+        }
+    }
+
+    public Address Address
+    {
+        get => _address;
+        set => _address = value;
+    }
+
+    public BankAccount BankAccount
+    {
+        get => _bankAccount;
+        set => _bankAccount = value;
+    }
 
     protected override IValidator GetValidator()
     {

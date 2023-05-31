@@ -1,6 +1,6 @@
 ﻿namespace Invoicing.Domain.Support.Contracts;
 
-public abstract class AbstractBase : Invoicing.Domain.Support.Contracts.Validators.IValidateable
+public abstract class AbstractBase : Validators.IValidateable
 {
     public virtual void ValidateAndThrow()
     {
@@ -26,5 +26,5 @@ public abstract class AbstractBase : Invoicing.Domain.Support.Contracts.Validato
     
     protected abstract FluentValidation.IValidator GetValidator();
 
-    public static string NullString => string.Empty;
+    protected static string NullString => string.Empty;
 }

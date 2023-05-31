@@ -1,7 +1,7 @@
 namespace Invoicing.Domain.Support.Contracts.Validators;
 
 public class ValueObjectValidator<T> : FluentValidation.AbstractValidator<T>
-    where T : Invoicing.Domain.Support.Contracts.ValueObjects.ValueObject
+    where T : ValueObjects.ValueObject
 {
     protected new FluentValidation.IRuleBuilderInitial<T, TProperty> RuleFor<TProperty>(
         System.Linq.Expressions.Expression<Func<T, TProperty>> expression)

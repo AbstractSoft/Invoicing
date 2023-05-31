@@ -1,10 +1,10 @@
 ﻿namespace Invoicing.Domain.Support.Specification;
 
-public class Negated<T> : Invoicing.Domain.Support.Specification.Contracts.SpecificationBase<T>
+public class Negated<T> : Contracts.SpecificationBase<T>
 {
-    private readonly Invoicing.Domain.Support.Specification.Contracts.ISpecification<T> _inner;
+    private readonly Contracts.ISpecification<T> _inner;
 
-    public Negated(Invoicing.Domain.Support.Specification.Contracts.ISpecification<T> inner)
+    public Negated(Contracts.ISpecification<T> inner)
     {
         _inner = inner;
     }

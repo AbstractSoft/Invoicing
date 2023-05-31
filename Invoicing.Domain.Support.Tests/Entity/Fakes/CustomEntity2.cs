@@ -11,8 +11,8 @@ public class CustomEntity2 : Invoicing.Domain.Support.Contracts.Entities.Entity
     public CustomEntity2(Guid id)
         : base(id)
     {
-        Property = Invoicing.Domain.Support.Helpers.Constants.GetNullString();
-        Property2 = Invoicing.Domain.Support.Helpers.Constants.GetNullString();
+        Property = Helpers.Constants.GetNullString();
+        Property2 = Helpers.Constants.GetNullString();
     }
 
     public string Property { get; set; }
@@ -20,6 +20,6 @@ public class CustomEntity2 : Invoicing.Domain.Support.Contracts.Entities.Entity
 
     protected override FluentValidation.IValidator GetValidator()
     {
-        return new Invoicing.Domain.Support.Tests.Entity.Fakes.Validators.CustomEntity2Validator();
+        return new Validators.CustomEntity2Validator();
     }
 }

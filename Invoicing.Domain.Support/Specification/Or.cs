@@ -1,12 +1,12 @@
 ﻿namespace Invoicing.Domain.Support.Specification;
 
-public class Or<T> : Invoicing.Domain.Support.Specification.Contracts.SpecificationBase<T>
+public class Or<T> : Contracts.SpecificationBase<T>
 {
-    private readonly Invoicing.Domain.Support.Specification.Contracts.ISpecification<T> left;
-    private readonly Invoicing.Domain.Support.Specification.Contracts.ISpecification<T> right;
+    private readonly Contracts.ISpecification<T> left;
+    private readonly Contracts.ISpecification<T> right;
 
-    public Or(Invoicing.Domain.Support.Specification.Contracts.ISpecification<T> left,
-        Invoicing.Domain.Support.Specification.Contracts.ISpecification<T> right)
+    public Or(Contracts.ISpecification<T> left,
+        Contracts.ISpecification<T> right)
     {
         this.left = left;
         this.right = right;

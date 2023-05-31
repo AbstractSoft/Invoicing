@@ -1,30 +1,32 @@
 ﻿namespace Invoicing.Domain.Support.Tests.Entity;
 
-[System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute]
+using System.Diagnostics.CodeAnalysis;
+using Xunit;
+
+[ExcludeFromCodeCoverage]
 public class EntityTests
 {
-    private readonly KellermanSoftware.CompareNetObjects.CompareLogic compareObject = new();
-    private readonly Invoicing.Domain.Support.Tests.Entity.Fakes.FakeEntityProperties1 entity = new();
-    private readonly Invoicing.Domain.Support.Tests.Entity.Fakes.FakeEntityProperties1 entityCopy;
+    private readonly KellermanSoftware.CompareNetObjects.CompareLogic _compareObject = new();
+    private readonly Fakes.FakeEntityProperties1 _entity = new();
+    private readonly Fakes.FakeEntityProperties1 _entityCopy;
 
     public EntityTests()
     {
-        entityCopy = entity.Copy<Invoicing.Domain.Support.Tests.Entity.Fakes.FakeEntityProperties1>();
+        _entityCopy = _entity.Copy<Fakes.FakeEntityProperties1>();
     }
 
-    [Xunit.FactAttribute]
-    //public void IsPrime_InputIs1_ReturnFalse()
+    [Fact]
     public void Copy_InputIsEntity_ReturnNotNull()
     {
-        Xunit.Assert.NotNull(entityCopy);
-        Xunit.Assert.False(entity.Equals(entityCopy));
+        Assert.NotNull(_entityCopy);
+        Assert.False(_entity.Equals(_entityCopy));
     }
 
-    [Xunit.FactAttribute]
+    [Fact]
     public void Copy_CopyValuesIdenticalWithSource()
     {
-        compareObject.Config.MembersToIgnore.Add("ObjectId");
+        _compareObject.Config.MembersToIgnore.Add("ObjectId");
 
-        Xunit.Assert.True(compareObject.Compare(entityCopy, entity).AreEqual);
+        Assert.True(_compareObject.Compare(_entityCopy, _entity).AreEqual);
     }
 }

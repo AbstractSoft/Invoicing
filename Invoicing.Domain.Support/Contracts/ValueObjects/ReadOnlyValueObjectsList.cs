@@ -2,8 +2,8 @@
 
 using System.Collections.Generic;
 
-public abstract class ReadOnlyValueObjectsList<T> : Invoicing.Domain.Support.Contracts.ValueObjects.ValueObjectsList<T>
-    where T : Invoicing.Domain.Support.Contracts.ValueObjects.ValueObject
+public abstract class ReadOnlyValueObjectsList<T> : ValueObjectsList<T>
+    where T : ValueObject
 {
     protected ReadOnlyValueObjectsList(IEnumerable<T> list)
     {

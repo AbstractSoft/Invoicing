@@ -1,11 +1,9 @@
-﻿namespace Invoicing.Domain.BoundedContexts.Shared.Person.IDCard.Validators;
+﻿namespace Invoicing.Domain.BoundedContexts.Person.IDCard.Validators;
 
-using System;
 using System.Diagnostics.CodeAnalysis;
 using FluentValidation;
-using Invoicing.Domain.BoundedContexts.Shared.Address.County.Validators;
 using Invoicing.Domain.Support.Contracts.Validators;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using Shared.Location.Validators;
 
 [ExcludeFromCodeCoverage]
 public sealed class IDCardValidator : ValueObjectValidator<IDCard>

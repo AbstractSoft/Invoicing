@@ -1,9 +1,9 @@
-﻿namespace Invoicing.Domain.BoundedContexts.Shared.Person.IDCard;
+﻿namespace Invoicing.Domain.BoundedContexts.Person.IDCard;
 
 using FluentValidation;
-using Invoicing.Domain.BoundedContexts.Shared.Address.County;
-using Invoicing.Domain.BoundedContexts.Shared.Person.IDCard.Validators;
-using Invoicing.Domain.Support.Contracts.ValueObjects;
+using Shared.Location;
+using Support.Contracts.ValueObjects;
+using Validators;
 
 [Serializable]
 public sealed class IDCard : ValueObject

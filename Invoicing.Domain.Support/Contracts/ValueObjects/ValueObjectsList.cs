@@ -5,8 +5,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-public abstract class ValueObjectsList<T> : Invoicing.Domain.Support.Contracts.ValueObjects.ValueObject, IList<T>
-    where T : Invoicing.Domain.Support.Contracts.ValueObjects.ValueObject
+public abstract class ValueObjectsList<T> : ValueObject, IList<T>
+    where T : ValueObject
 {
     private const string ErrMsgOperationIsNotPermittedOnAReadonlyList = "This operation is not allowed on a ReadOnly list!";
 

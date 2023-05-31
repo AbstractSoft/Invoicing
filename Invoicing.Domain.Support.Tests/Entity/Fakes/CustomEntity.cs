@@ -11,11 +11,11 @@ public class CustomEntity : Invoicing.Domain.Support.Contracts.Entities.Entity
     public CustomEntity(Guid id)
         : base(id)
     {
-        StringProperty = Invoicing.Domain.Support.Helpers.Constants.GetNullString();
-        StringProperty2 = Invoicing.Domain.Support.Helpers.Constants.GetNullString();
+        StringProperty = Helpers.Constants.GetNullString();
+        StringProperty2 = Helpers.Constants.GetNullString();
         IntProperty = default;
         DateTimeProperty = default;
-        CustomEntity2 = Invoicing.Domain.Support.Helpers.Constants.GetNullObject<CustomEntity2>();
+        CustomEntity2 = Helpers.Constants.GetNullObject<CustomEntity2>();
     }
 
     public string StringProperty { get; set; }
@@ -26,6 +26,6 @@ public class CustomEntity : Invoicing.Domain.Support.Contracts.Entities.Entity
 
     protected override FluentValidation.IValidator GetValidator()
     {
-        return new Invoicing.Domain.Support.Tests.Entity.Fakes.Validators.CustomEntityValidator();
+        return new Validators.CustomEntityValidator();
     }
 }

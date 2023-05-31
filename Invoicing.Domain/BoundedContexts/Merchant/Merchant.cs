@@ -1,7 +1,7 @@
 namespace Invoicing.Domain.BoundedContexts.Merchant;
 
-public class Merchant : Invoicing.Domain.Support.Contracts.Entities.Entity,
-    Invoicing.Domain.Support.Contracts.Entities.IAggregateRoot
+public class Merchant : Support.Contracts.Entities.Entity,
+    Support.Contracts.Entities.IAggregateRoot
 {
     /*
     Logo

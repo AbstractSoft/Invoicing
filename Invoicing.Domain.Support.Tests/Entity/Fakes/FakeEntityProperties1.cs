@@ -11,7 +11,7 @@ public class FakeEntityProperties1 : Invoicing.Domain.Support.Contracts.Entities
     public FakeEntityProperties1(Guid id)
         : base(id)
     {
-        StringProperty = Invoicing.Domain.Support.Helpers.Constants.GetNullString();
+        StringProperty = Helpers.Constants.GetNullString();
         IntProperty = default;
         DateTimeProperty = default;
         CustomObjectsList = new List<CustomEntity>(3);
@@ -56,6 +56,6 @@ public class FakeEntityProperties1 : Invoicing.Domain.Support.Contracts.Entities
 
     protected override FluentValidation.IValidator GetValidator()
     {
-        return new Invoicing.Domain.Support.Tests.Entity.Fakes.Validators.FakeEntityProperties1Validator();
+        return new Validators.FakeEntityProperties1Validator();
     }
 }

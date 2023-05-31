@@ -9,8 +9,6 @@
     <ItemGroup>
         <Folder Include="BoundedContexts\Customer\Validators\" />
         <Folder Include="BoundedContexts\Merchant\" />
-        <Folder Include="BoundedContexts\Person\" />
-        <Folder Include="BoundedContexts\Company\" />
     </ItemGroup>
 
     <ItemGroup>
