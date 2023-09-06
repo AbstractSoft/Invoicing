@@ -75,19 +75,47 @@ public sealed class Person : Entity, IAggregateRoot
             _idCard = value;
             
             ValidateAndThrow();
+            
+            //Invoicing.Domain.Support.Events.DomainEvents.Raise(
+            //         new eCommerce.Domain.Customers.Events.PersonChanged
+            //         {
+            //             Person = this
+            //         });
         }
     }
 
     public Address Address
     {
         get => _address;
-        set => _address = value;
+        set
+        {
+            _address = value; 
+            
+            ValidateAndThrow();
+            
+            //Invoicing.Domain.Support.Events.DomainEvents.Raise(
+            //         new eCommerce.Domain.Customers.Events.PersonChanged
+            //         {
+            //             Person = this
+            //         });
+        }
     }
 
     public BankAccount BankAccount
     {
         get => _bankAccount;
-        set => _bankAccount = value;
+        set
+        {
+            _bankAccount = value;
+            
+            ValidateAndThrow();
+            
+            //Invoicing.Domain.Support.Events.DomainEvents.Raise(
+            //         new eCommerce.Domain.Customers.Events.PersonChanged
+            //         {
+            //             Person = this
+            //         });
+        }
     }
 
     protected override IValidator GetValidator()
